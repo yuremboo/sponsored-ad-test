@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.sponsored.ad.model.Campaign;
 
 @Repository
-public interface CampaignRepository extends JpaRepository<Integer, Campaign> {
+public interface CampaignRepository extends JpaRepository<Campaign, Integer> {
 }

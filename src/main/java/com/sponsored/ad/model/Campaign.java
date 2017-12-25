@@ -18,6 +18,8 @@ import javax.persistence.PostLoad;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -40,6 +42,7 @@ public class Campaign implements Serializable {
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "CAMPAIGN_PROJECT", joinColumns = @JoinColumn(name = "campaign_fk", foreignKey = @ForeignKey(name = "FK_PROJ_CAMP")), inverseJoinColumns = @JoinColumn(name = "project_fk", foreignKey = @ForeignKey(name = "FK_CAMP_PROJ")))
+	@JsonIgnore
 	private Set<Product> products;
 
 	@Column(name = "date", nullable = false)
